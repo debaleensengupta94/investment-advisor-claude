@@ -1,0 +1,10 @@
+.env
+reports/
+__pycache__/
+*.pyc
+*.pyo
+.claude/settings.local.json
+*.egg-info/
+dist/
+build/
+.DS_Store

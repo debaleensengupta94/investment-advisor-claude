@@ -1,0 +1,14 @@
+# Already installed in /home/labuser/venv
+anthropic>=0.97.0
+pydantic>=2.13
+prometheus_client>=0.25
+python-json-logger>=4.1
+PyYAML>=6.0
+requests>=2.33
+matplotlib>=3.9
+
+# Installed by setup.sh
+streamlit>=1.35
+opentelemetry-api>=1.25
+opentelemetry-sdk>=1.25
+locust>=2.29

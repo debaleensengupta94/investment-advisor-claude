@@ -1,0 +1,37 @@
+{
+  "model": "claude-sonnet-4-6",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"[HOOK] Bash tool at $(date)\" >> /home/labuser/investment-advisor-poc/reports/hook_log.txt"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"[HOOK] File written: $CLAUDE_TOOL_INPUT_PATH at $(date)\" >> /home/labuser/investment-advisor-poc/reports/hook_log.txt"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"[HOOK] Session ended at $(date)\" >> /home/labuser/investment-advisor-poc/reports/hook_log.txt"
+          }
+        ]
+      }
+    ]
+  }
+}

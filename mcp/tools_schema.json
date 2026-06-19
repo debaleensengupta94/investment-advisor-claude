@@ -1,0 +1,38 @@
+{
+  "tools": [
+    {
+      "name": "get_recommendation",
+      "description": "Return an investment allocation for a user profile",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "age": {"type": "integer"},
+          "monthly_income": {"type": "number"},
+          "monthly_savings": {"type": "number"},
+          "risk": {"type": "string", "enum": ["LOW", "MEDIUM", "HIGH"]},
+          "goal": {"type": "string", "enum": ["SHORT", "MEDIUM", "LONG"]}
+        },
+        "required": ["age", "monthly_income", "monthly_savings", "risk", "goal"]
+      }
+    },
+    {
+      "name": "get_knowledge",
+      "description": "Retrieve relevant investment education passages",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {"type": "string"}
+        },
+        "required": ["query"]
+      }
+    },
+    {
+      "name": "health_check",
+      "description": "Check server health",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  ]
+}

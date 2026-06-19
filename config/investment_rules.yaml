@@ -1,0 +1,96 @@
+# Investment allocation rules
+# Each rule maps (risk x goal) to allocation percentages
+# Age modifier applied by rules_engine.py after base lookup
+# All percentages must sum to 100
+
+rules:
+  - risk: LOW
+    goal: SHORT
+    allocation:
+      fixed_deposit: 50
+      recurring_deposit: 30
+      bonds: 15
+      mutual_funds: 5
+      equity: 0
+
+  - risk: LOW
+    goal: MEDIUM
+    allocation:
+      fixed_deposit: 35
+      recurring_deposit: 25
+      bonds: 25
+      mutual_funds: 15
+      equity: 0
+
+  - risk: LOW
+    goal: LONG
+    allocation:
+      fixed_deposit: 30
+      recurring_deposit: 20
+      bonds: 30
+      mutual_funds: 15
+      equity: 5
+
+  - risk: MEDIUM
+    goal: SHORT
+    allocation:
+      fixed_deposit: 35
+      recurring_deposit: 25
+      bonds: 20
+      mutual_funds: 15
+      equity: 5
+
+  - risk: MEDIUM
+    goal: MEDIUM
+    allocation:
+      fixed_deposit: 20
+      recurring_deposit: 15
+      bonds: 20
+      mutual_funds: 30
+      equity: 15
+
+  - risk: MEDIUM
+    goal: LONG
+    allocation:
+      fixed_deposit: 10
+      recurring_deposit: 10
+      bonds: 15
+      mutual_funds: 35
+      equity: 30
+
+  - risk: HIGH
+    goal: SHORT
+    allocation:
+      fixed_deposit: 20
+      recurring_deposit: 15
+      bonds: 20
+      mutual_funds: 25
+      equity: 20
+
+  - risk: HIGH
+    goal: MEDIUM
+    allocation:
+      fixed_deposit: 10
+      recurring_deposit: 10
+      bonds: 10
+      mutual_funds: 35
+      equity: 35
+
+  - risk: HIGH
+    goal: LONG
+    allocation:
+      fixed_deposit: 5
+      recurring_deposit: 5
+      bonds: 10
+      mutual_funds: 30
+      equity: 50
+
+age_modifiers:
+  # If age < 25: cap equity at 20, redistribute excess to fixed_deposit
+  young:
+    max_age: 25
+    equity_cap: 20
+  # If age > 55: cap equity at 15, redistribute excess to fixed_deposit and bonds equally
+  senior:
+    min_age: 55
+    equity_cap: 15
